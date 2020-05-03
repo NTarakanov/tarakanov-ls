@@ -13,7 +13,8 @@ html(lang="ru")
         //- +image('content/user.jpg', 'user-pic')
         //- +icon('link', 'link-class')
         //- .icon-bg
-        .welcome-section
+        section.parallax
+          +image("background/bg_top.jpg", "parallax__top")
           section.hero
             .container.hero__container
               header.header
@@ -31,11 +32,53 @@ html(lang="ru")
                   ul.socials
                     each item in icons
                       li.socials__item
-                        a(href="").socials__link
+                        a(href="", target="_blank").socials__link
                           +icon(item, 'socials__icon')
               .hero__content
                 .user-data
-                  .user-data__desc Личный сайт веб разработчика
-                  h1.user-data__name Владимир Астаханов
+                  .user-data__desc Личный сайт <br> веб разработчика
+                  h1.user-data__name Владимир <br> Астаханов
               .hero__bottom-btn.scroll-down-btn
                 a(href="#") Скролл
+          section.about-section
+            .container
+              .about
+                .about__user-data
+                  .user-info
+                    .user-info__avatar
+                      .avatar
+                        +image("content/user.jpg", "avatar__image")
+                    .user-info__content
+                      -
+                        var userdata= [
+                          ["Проживаю:", "Новосибирск"],
+                          ["Возраст:", "27 лет"],
+                          ["Родился:", "1 января 1991"]
+                        ]
+                      table.user-info__table
+                        tbody.user-info__tbody
+                          each row in userdata                            
+                            tr.user-info__table-row
+                              td.user-info__table-col #{row[0]}
+                              td.user-info__table-col #{row[1]}
+                .about__content
+                  .about-user
+                    .about-user__greeting Привет, меня зовут
+                    h2.about-user__title.title Владимир Астаханов
+                    .about-user__desc 
+                      p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                    .about-user__ps 
+                      p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+          .triangles-bottom
+            svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles-bottom__item.triangle
+              polygon(points="0,0 0,100 1000,100")
+            svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles-bottom__item.triangle
+              polygon(points="1000,0 1000,100 0,100")  
+        section.usefulness
+          .container
+            .usefulness__content
+              h3.usefulness__title Чем я могу быть полезен вам
+              .usefulness__desc
+                p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .usefulness__skills
+              +skills("HTML")

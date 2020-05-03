@@ -1,0 +1,19 @@
+.user-info {
+  display: flex;
+  flex-direction: column;
+
+  &__avatar {
+    align-self: center;
+  }
+  &__table {
+    width: 100%;
+  }
+  &__table-col {
+    &:first-child {
+      color: rgba($text-color, 0.3);
+    }
+    &:last-child {
+      color: $text-color;
+    }
+  }
+}
