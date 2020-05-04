@@ -1,0 +1,44 @@
+.works-slider {
+  display: flex;
+  overflow: hidden;
+
+  &__item {
+    position: relative;
+    min-width: 100%;
+
+    &--activ {
+      transform: translateX(-300%);
+    }
+  }
+  &__displ {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+  &__controll {
+    display: flex;
+    width: 100px;
+    margin-left: auto;
+    background-color: #353e4e;
+  }
+  &__link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+
+    &:hover {
+      background-color: $hover;
+    }
+  }
+  &__btn-up {
+    width: 20px;
+    fill: #ffffff;
+  }
+
+  &__btn-down {
+    width: 20px;
+    fill: #ffffff;
+  }
+}

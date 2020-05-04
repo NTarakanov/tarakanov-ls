@@ -50,7 +50,7 @@ html(lang="ru")
                         +image("content/user.jpg", "avatar__image")
                     .user-info__content
                       -
-                        var userdata= [
+                        var userdata = [
                           ["Проживаю:", "Новосибирск"],
                           ["Возраст:", "27 лет"],
                           ["Родился:", "1 января 1991"]
@@ -80,5 +80,70 @@ html(lang="ru")
               h3.usefulness__title Чем я могу быть полезен вам
               .usefulness__desc
                 p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .usefulness__image
+              +image("background/backpack.jpg", "usefulness__img")
             .usefulness__skills
-              +skills("HTML")
+              .skills
+                h4.skills__title Front-end
+                ul.skills__list
+                  -
+                    var skills = [
+                      ["HTML5", 90], 
+                      ["CSS3", 45], 
+                      ["Javascript", 345], 
+                      ["jquery и Vue.js", 502.4]
+                    ]
+                  each item in skills
+                    li.skills__item
+                      +skills(item[0], item[1])
+                
+                h4.skills__title Workflow
+                ul.skills__list
+                  -
+                    var skills = [
+                      ["GIT", 290], 
+                      ["Terminal", 345], 
+                      ["Gulp", 145], 
+                      ["Webpack", 490]
+                    ]
+                  each item in skills
+                    li.skills__item
+                      +skills(item[0], item[1])
+        section.my-works
+          .container.my-works__container
+            h2.my-works__title.title Мои pаботы
+            .my-works__slider
+              //- slider
+              ul.works-slider
+                -var slider = ["slider/slider_1.jpg", "slider/slider_2.jpg", "slider/slider_3.jpg"]
+                each slide in slider
+                  li.works-slider__item
+                    a(href="#").works-slider__link
+                      +image(slide, "works-slider__displ")
+                li.works-slider__item.works-slider__item--activ
+                  a(href="#").works-slider__link
+                    +image("slider/slider_4.jpg", "works-slide__displ")
+              //- navigation
+              ul.nav-slider
+                -var nav = ["slider/slider_1.jpg", "slider/slider_2.jpg", "slider/slider_3.jpg"]
+                each item in nav
+                  li.nav-slider__item
+                    a(href="#").nav-slider__link
+                      +image(item, "nav-slider__icon")
+                li.nav-slider__item.nav-slider__item--activ
+                  a(href="#").works-slider__link
+                    +image("slider/slider_4.jpg", "nav-slider__icon")               
+              .works-slider__controll
+                a(href="#").works-slider__link-btn.works-slider__link-up
+                  +icon("scroll-up", "works-slider__btn-up")
+                a(href="#").works-slider__link-btn.works-slider__link-down
+                  +icon("scroll-down", "works-slider__btn-down")
+            .my-works__content
+              .my-works__create
+                ul.my-works__list
+                  -var items = ["HTML", "CSS", "javascript"]
+                  each item in items
+                    li.my-works__item #{item}
+              h3.my-works__sites Сайт школы образования
+              .my-works__desc Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+              a.my-works__link Посмотреть сайт
