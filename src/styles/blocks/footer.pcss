@@ -1,0 +1,46 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 100px 0;
+  color: #ffffff;
+
+  &__copyright {
+    max-width: 378px;
+  }
+
+  &__content {
+    max-width: 977px;
+    width: 100%;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+
+    &:first-child {
+      margin-bottom: 55px;
+    }
+  }
+
+  &__col {
+    min-height: 128px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 1.875;
+    color: rgba(#ffffff, 0.3);
+    font-size: 16px;
+    font-weight: 400;
+
+    &:first-child {
+      max-width: 348px;
+    }
+    &:last-child {
+      max-width: 474px;
+    }
+  }
+  &__author-quote {
+    color: #ffffff;
+    font-style: italic;
+  }
+}

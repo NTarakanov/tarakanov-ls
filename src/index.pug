@@ -10,9 +10,6 @@ html(lang="ru")
   body
     .wrapper
       .maincontent
-        //- +image('content/user.jpg', 'user-pic')
-        //- +icon('link', 'link-class')
-        //- .icon-bg
         section.parallax
           +image("background/bg_top.jpg", "parallax__top")
           section.hero
@@ -146,4 +143,81 @@ html(lang="ru")
                     li.my-works__item #{item}
               h3.my-works__sites Сайт школы образования
               .my-works__desc Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-              a.my-works__link Посмотреть сайт
+              a.my-works__link 
+                +icon("link", "my-works__icon-link") 
+                span Посмотреть сайт
+              p.my-works__number 4
+        section.parallax          
+          +image("background/bg_bottom.jpg", "parallax__bottom")
+          .triangles-top
+            svg(viewBox="0 0 1000 100" preserveAspectRatio="none").triangles-top__item.triangle
+              polygon(points="0,0 500,50 1000,0")
+          section.reviews
+            .container.reviews__container
+              h2.reviews__title.title Что обо мне говорят
+              .reviews__btn
+                a.reviews__btn-left <
+                a.reviews__btn-right >
+              ul.reviews__list
+                li.reviews__item.review
+                  +review("Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!", "user", "Ковальчук Дмитрий", "Основатель Loftschoo")
+                li.reviews__item.review
+                  +review("Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах", "user", "Владимир Сабанцев", "Преподаватель")
+          section.feedback-form
+            .container
+              h2.feedback-form__title.title Связаться со мной
+              form.feedback-form__form.feedback
+                .feedback__row
+                  .feedback__col
+                    +icon("user", "feedback__icon")
+                    label.feedback__block                      
+                      .feedback__title Введите ваше имя                    
+                      input(type="text" name="user").feedback__input
+
+                  .feedback__col
+                    +icon("envelope", "feedback__icon")
+                    label.feedback__block                      
+                      .feedback__title Введите ваш emai                    
+                      input(type="email" name="message").feedback__input
+                .feedback__row
+                  .feedback__col.feedback__col--textarea
+                    +icon("message", "feedback__icon")
+                    label.feedback__block                      
+                      .feedback__title Сообщение к письму                    
+                      textarea(name="envelope", col="2", rows="2").feedback__input.feedback__input--textarea
+                .feedback__row
+                  button(type="submit").feedback__sub-btn Отправить
+        section.section.section--footer
+          .container
+            footer.footer
+              .footer__copyright
+                .copyright
+                  .copyright__col
+                    .copyright__year &copy; 2019
+                  .copyright__col
+                    .copyright__author Владимир Астахов
+                    .copyright__site Личный сайт веб-разработчика
+              .footer__content
+                .footer__row
+                  .footer__nav
+                    nav.menu
+                      - var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                      ul.menu__list.menu__list--foter
+                        each item in items
+                          li.menu__item
+                            a.menu__link #{item}
+                .footer__row
+                  .footer__col
+                    .footer__desc
+                      p Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+                    .footer_social
+                      -var icons = ["insta", "vk", "github"]
+                      ul.socials
+                        each item in icons
+                          li.socials__item.socials__item--footer
+                            a(href="", target="_blank").socials__link
+                              +icon(item, 'socials__icon socials__icon--footer')
+                  .footer__col
+                    .footer__quote
+                      p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+                    .footer__author-quote Martin Golding
